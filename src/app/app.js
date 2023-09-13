@@ -12,6 +12,9 @@ app.get("/", (req, res)=>{
 	res.send("Hello world with Express");
 })
 
+
+
+app.use(express.json());
 app.use("/api/v1", router);
 
 
