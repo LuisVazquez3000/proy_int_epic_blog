@@ -4,6 +4,9 @@ const router = require("../router/posts.router");
 
 const app = express();
 
+app.use('view engine', 'ejs');
+app.use('views', __dirname + '/views');
+
 app.use(morgan("dev"));
 
 
