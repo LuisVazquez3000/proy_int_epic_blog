@@ -41,16 +41,5 @@ console.log(Post === sequelize.models.Post);
 
 module.exports = Post;
 
-// async function testConnection(){
-// 	try{
-// 		await	sequelize.authenticate();	
-// 		console.log("All good");
-// 	}catch(err){
-// 		console.log(err);
-// 	}
-	
-// }
-
-// testConnection();
 
 

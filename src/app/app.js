@@ -1,21 +1,24 @@
 const express = require('express');
 const morgan = require("morgan");
 const router = require("../router/posts.router");
-
 const app = express();
 
-app.use('view engine', 'ejs');
-app.use('views', __dirname + '/views');
+const path = require('path');
+const dirpath = path.join(__dirname,"../views")
+const dirpaths = path.join(__dirname,"../public")
 
 app.use(morgan("dev"));
+app.set('view engine', 'ejs');
+app.set('views',dirpath);
+
+console.log("dirname ",dirpath);
 
 
+app.use(express.static(dirpaths));
 
 app.get("/", (req, res)=>{
-	res.send("Hello world with Express");
+	res.render("index", {titulo: "Mi primer titulo con ejs"});
 })
-
-
 
 app.use(express.json());
 app.use("/api/v1", router);
