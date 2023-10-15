@@ -34,9 +34,10 @@ router.get("/posts/:post_id",async (req, res)=>{
 } )
 
 
-router.post("./create",async(req, res)=>{
+router.post("/create",async(req, res)=>{
 	const data_post = req.body;
 	await Post.sync();
+	console.log(data_post);
 	const createPost = await Post.create({
 
 		title_post: data_post.title_post,
@@ -44,13 +45,17 @@ router.post("./create",async(req, res)=>{
 		post_link:data_post.post_link,
 		date_create_post:data_post.date_create_post
 	})
-	res.render("create",
-		{
-			ok:true,
-			status:201,
-			message:"created post"
-		}
-	);
+	
+	console.log(createPost);
+
+	 res.redirect('/api/v1/posts');
+	// res.render("create",
+	// 	{
+	// 		ok:true,
+	// 		status:201,
+	// 		message:"created post"
+	// 	}
+	// );
 } )
 
 

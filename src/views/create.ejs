@@ -1,1 +1,52 @@
-<h1>Create EJS</h1>
+<%- include("template/header",{titulo:'Nuevo Registro'}) %><%- include("template/header",{titulo:'Pagina Inicio'}) %>
+		<h1>Create EJS</h1>
+		<div class="container form-container">
+			<div class="card-header">Nuevo Registro</div>
+			<div class="card-body">
+				<form action="/api/v1/create" method="post">
+					<div class="mt-4">
+						<label for="title_post" class="form-label">Titulo</label>
+						<input type="text" id="title_post" name="title_post" class="form-control">
+					</div>
+					<div class="mt-4">
+						<label for="content_post" class="form-label">Contenido</label>
+						<textarea name="content_post" id="content_post" cols="68" rows="5"></textarea>
+						<!-- <input id="content_post" name="content_post" class="form-control"> -->
+					</div>
+					<div class="mt-4">
+						<label for="post_link" class="form-label">LINK</label>
+						<input type="text" id="post_link" name="post_link" class="form-control">
+					</div>
+					<button type="submit" class="btn btn-primary" tabindex="5">Guardar</button>
+					<a href="/api/v1/posts" class="btn btn-secondary">Cancelar</a>
+				</form>
+			</div>
+		</div>
+
+
+		<%- include('template/footer'); %>
+
+
+
+			<style>
+				.form-container {
+					margin-top: 15px;
+					padding: 15px;
+					border: 1px solid black;
+					max-width: 550px;
+				}
+
+				input {
+					border: none;
+					font-size: 16px;
+					height: auto;
+					margin: 0;
+					outline: 0;
+					padding: 15px;
+					width: 100%;
+					background-color: #a1d1f5;
+					color: #64696d;
+					box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+					margin-bottom: 30px;
+				}
+			</style>

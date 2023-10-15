@@ -19,7 +19,7 @@ app.use(express.static(dirpaths));
 app.get("/", (req, res)=>{
 	res.render("index", {titulo: "Mi primer titulo con ejs"});
 })
-
+app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 app.use("/api/v1", router);
 

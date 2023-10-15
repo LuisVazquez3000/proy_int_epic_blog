@@ -1,9 +1,12 @@
 
+
 <% if (posts) { %>
- <div class="container mt-4"> 
-	 <% posts.forEach(post => { %>
-		<h2><%= post.title_post %></h2>
-		<div class="card mb-3" style="max-width: 540px;">
+	<div class="container mt-4 d-flex flex-column align-items-center"> 
+		<% posts.forEach(post => { %>
+			<div class="col-md-4">
+			<h2><%= post.title_post %></h2>
+		</div>
+		<div class="card mb-3 col-md-8">
 			<div class="row g-0">
 				<div class="col-md-4">
 					<img src=<%= post.post_link %>  class="img-thumbnail" style="width:200; heigth: 200;" alt="#">
@@ -23,3 +26,8 @@
 		<% } %>
 	</div>
 	
+<style>
+	img{
+		max-width: 640px;
+	}
+</style>
