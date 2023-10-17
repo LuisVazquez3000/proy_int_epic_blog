@@ -1,1 +1,59 @@
-<h1>EDIT EJS</h1>
+<%- include("template/header",{titulo:'Edit Registro'}) %><%- include("template/header",{titulo:'Pagina Edicion'}) %>
+
+		<% (post)%>
+			<div class="container form-container">
+			 <div class="card-header">Editar Registro</div>
+			 <div class="card-body">
+				<%= console.log(post.post_id) %>
+				 <form action="/api/v1/posts/<%= post.post_id %>" method="post">
+					 <input type="text" id="id" name="id" value="<%= post.post_id %>" hidden>
+					 <div class="mt-4">
+						 <label for="title_post" class="form-label">Titulo</label>
+						 <input type="text" id="title_post" name="title_post" class="form-control" value="<%= post.title_post %>">
+					 </div>
+					 <div class="mt-4">
+						 <label for="content_post" class="form-label">Contenido</label>
+						 <textarea name="content_post" id="content_post" rows="5"><%= post.content_post %></textarea>
+						 <!-- <input id="content_post" name="content_post" class="form-control"> -->
+					 </div>
+					 <div class="mt-4">
+						 <label for="post_link" class="form-label">LINK</label>
+						 <input type="text" id="post_link" name="post_link" class="form-control" value="<%= post.post_link %>">
+					 </div>
+					 <button type="submit" class="btn btn-primary" tabindex="5">Guardar</button>
+					 <a href="/api/v1/posts" class="btn btn-secondary">Cancelar</a>
+				 </form>
+			 </div>
+			 </div>
+		%>
+
+			<%- include('template/footer'); %>
+
+
+
+				<style>
+					.form-container {
+						margin-top: 65px;
+						padding: 15px;
+						border: 1px solid black;
+						max-width: 550px;
+					}
+
+					textarea {
+						width: 30em;
+					}
+
+					input {
+						border: none;
+						font-size: 16px;
+						height: auto;
+						margin: 0;
+						outline: 0;
+						padding: 15px;
+						width: 100%;
+						background-color: #a1d1f5;
+						color: #64696d;
+						box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+						margin-bottom: 30px;
+					}
+				</style>
